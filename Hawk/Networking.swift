@@ -19,7 +19,7 @@ class Networking {
 
     
     
-    class func register(userId : String, email : String, password : String) {
+    class func register(userId : String, email : String, password : String, completionHandler: @escaping (NSDictionary?, NSError?) -> ()) {
         let registerUrl = Networking().url! + "/register"
         let parameters : Parameters = [
             "userId" : userId,
@@ -28,14 +28,18 @@ class Networking {
         ]
         Alamofire.request(registerUrl, method: .post, parameters: parameters).responseJSON { response in
             
-            if let json = response.result.value {
-                print("JSON \(json)")
+            switch response.result {
+            case .success(let value):
+                completionHandler(value as? NSDictionary, nil)
+            case .failure(let error):
+                completionHandler(nil, error as NSError?)
             }
+            
             
         }
     }
     
-    class func login(userId : String, password : String ) {
+    class func login(userId : String, password : String, completionHandler: @escaping (NSDictionary?, NSError?) -> () ) {
         let loginUrl = Networking().url! + "/login"
         let parameters : Parameters = [
             "userId" : userId,
@@ -43,8 +47,11 @@ class Networking {
         ]
         Alamofire.request(loginUrl, method: .post, parameters: parameters).responseJSON { response in
             
-            if let json = response.result.value {
-                print("JSON \(json)")
+            switch response.result {
+            case .success(let value):
+                completionHandler(value as? NSDictionary, nil)
+            case .failure(let error):
+                completionHandler(nil, error as NSError?)
             }
             
         }

@@ -10,7 +10,7 @@ Currently, Networking class has two methods, register and login. To use them, yo
 
 ```swift
 Networking.login(userId : "some username", password : "some password", completionHandler: {response, error in
-  if let json = response.resultvalue {
+  if let json = response.result.value {
     print("JSON: \(json)")
   }
 }

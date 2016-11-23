@@ -2,7 +2,8 @@
 //  GodViewController.swift
 //  Hawk
 //
-//  Created by Shreyas Hirday on 11/29/16.
+
+//  Created by Tanya B on 11/23/16.
 //  Copyright © 2016 HirDaysOfTheWeek. All rights reserved.
 //
 
@@ -11,7 +12,6 @@ import UIKit
 class GodViewController: UITabBarController {
 
     var username : String!
-    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -22,7 +22,6 @@ class GodViewController: UITabBarController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
 
     /*
     // MARK: - Navigation

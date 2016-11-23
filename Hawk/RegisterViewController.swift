@@ -28,12 +28,12 @@ class RegisterViewController: UIViewController {
     }
     
     @IBAction func goToLogin(_ sender: Any) {
-
     
     }
     
     
     @IBAction func doRegister(_ sender: Any) {
+
 
         let username = usernameField.text
         let email = emailField.text
@@ -50,11 +50,13 @@ class RegisterViewController: UIViewController {
             else {
                 let message:String = response?.value(forKey: "message") as! String
                 print("message = \(message)")
-                }
+            }
+        
             })
-        }
         
     }
+
+}
     
     //create another viewController for login
     //make the button work 
@@ -69,13 +71,5 @@ class RegisterViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
-<<<<<<< HEAD
-    
-    }
-    
-=======
     }
     */
-
-
-}

@@ -8,6 +8,7 @@
 
 import Foundation
 import Alamofire
+import AlamofireObjectMapper
 
 class Networking {
     
@@ -90,23 +91,28 @@ class Networking {
         }
     }
     
-    class func getReviews(lat : Double, lon : Double, radius: Double, completionHandler : @escaping (NSDictionary?, NSError?) -> ()) {
+    class func getReviews(lat : Double, lon : Double, radius: Double, completionHandler : @escaping (ReviewsResponse?, NSError?) -> ()) {
         let getReviewsUrl = Networking().url! + "/getReviews"
         let parameters : Parameters = [
             "lat" : lat,
             "lon" : lon,
             "radius" : radius
         ]
-        Alamofire.request(getReviewsUrl, parameters : parameters).responseJSON {
-            response in
+        
+        
+        Alamofire.request(getReviewsUrl, parameters : parameters).responseObject {
+            (response: DataResponse<ReviewsResponse>) in
             
             switch response.result {
             case .success(let value):
-                completionHandler(value as? NSDictionary, nil)
+                completionHandler(value as ReviewsResponse, nil)
             case .failure(let error):
                 completionHandler(nil, error as NSError?)
             }
         }
+ 
+        
+        
     }
     
     class func getReviewsByUserId(userId : String, completionHandler : @escaping (NSDictionary?, NSError?) -> ()) {

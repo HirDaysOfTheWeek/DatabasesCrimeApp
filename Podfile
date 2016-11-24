@@ -4,4 +4,5 @@ use_frameworks!
 
 target 'Hawk' do
     pod 'Alamofire', '~> 4.0'
+    pod 'AlamofireObjectMapper', '~> 4.0'
 end

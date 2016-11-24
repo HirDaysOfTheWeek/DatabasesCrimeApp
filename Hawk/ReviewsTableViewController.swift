@@ -24,7 +24,6 @@ class ReviewsTableViewController: UITableViewController, CLLocationManagerDelega
             locationManager.startUpdatingLocation()
         }
         
-
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -59,7 +58,6 @@ class ReviewsTableViewController: UITableViewController, CLLocationManagerDelega
         cell.textLabel?.text = review.userId!
         cell.detailTextLabel?.text = review.comments!
         
-
         return cell
     }
     
@@ -80,13 +78,9 @@ class ReviewsTableViewController: UITableViewController, CLLocationManagerDelega
             
             let status = response?.status
             if status == "ok" {
-                print("status is ok")
                 if let r = response?.reviews {
-                    print("reviews are there")
                     self.reviews = r
                     self.tableView.reloadData()
-                } else {
-                    print("reviews are not there")
                 }
             }
             else {

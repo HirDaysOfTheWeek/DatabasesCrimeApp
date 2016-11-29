@@ -13,9 +13,18 @@ class ReviewsTableViewController: UITableViewController, CLLocationManagerDelega
 
     var reviews = [Review]()
     let locationManager = CLLocationManager()
+    let blueColor = UIColor(red: 33/255, green: 150/255, blue: 243/255, alpha: 1.0)
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        let footer:UIView = UIView.init(frame: .zero)
+        self.tableView.tableFooterView = footer
+        let yellowColor = UIColor.init(red: 255/255, green: 235/255, blue: 59/255, alpha: 1.0)
+        self.view.backgroundColor = yellowColor
+        self.navigationItem.title = "Reviews"
+        self.navigationController?.navigationBar.barTintColor = yellowColor
+        self.navigationController?.navigationBar.tintColor = blueColor
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Post", style: UIBarButtonItemStyle.plain, target: self, action: #selector(goToPostReview))
         locationManager.delegate = self
         let authStatus = CLLocationManager.authorizationStatus()
         if authStatus != .authorizedWhenInUse {
@@ -49,15 +58,22 @@ class ReviewsTableViewController: UITableViewController, CLLocationManagerDelega
     }
 
     
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> RatingTableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath) as! RatingTableViewCell
 
         // Configure the cell...
         let row = indexPath.row
         let review = self.reviews[row]
-        cell.textLabel?.text = review.userId!
-        cell.detailTextLabel?.text = review.comments!
-        
+        let userIdStr = "User: " + review.userId!
+        cell.usernameLabel?.text = userIdStr
+        cell.usernameLabel?.textColor = .white
+        let commentStr = "Comments: " + review.comments!
+        cell.commentsLabel?.text = commentStr
+        cell.commentsLabel?.textColor = .white
+        let ratingStr:String = String(format: "Rating: %.2f", review.rating!)
+        cell.ratingTable?.text = ratingStr
+        cell.ratingTable?.textColor = .white
+        cell.backgroundColor = blueColor
         return cell
     }
     
@@ -79,6 +95,7 @@ class ReviewsTableViewController: UITableViewController, CLLocationManagerDelega
             let status = response?.status
             if status == "ok" {
                 if let r = response?.reviews {
+                    print("Has reviews")
                     self.reviews = r
                     self.tableView.reloadData()
                 }
@@ -87,10 +104,13 @@ class ReviewsTableViewController: UITableViewController, CLLocationManagerDelega
                 let message = response?.message
                 print("Error, message = \(message)")
             }
-            
         })
     }
 
+    func goToPostReview() {
+        self.performSegue(withIdentifier: "goToPostReview", sender: self)
+    }
+    
     /*
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {

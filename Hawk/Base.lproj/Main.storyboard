@@ -1,12 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<<<<<<< Updated upstream
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="PjC-ax-tKS">
-=======
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="PjC-ax-tKS">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
->>>>>>> Stashed changes
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -100,11 +96,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Nw-L8-lE0" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="750" y="360"/>
-        </scene>
-<<<<<<< Updated upstream
-        <!--View Controller-->
-=======
-        <!--Settings-->
+        </scene>        <!--Settings-->
         <scene sceneID="axi-iW-g9W">
             <objects>
                 <viewController id="07K-U6-RZO" sceneMemberID="viewController">
@@ -247,7 +239,6 @@
             <point key="canvasLocation" x="-817" y="-649"/>
         </scene>
         <!--Register View Controller-->
->>>>>>> Stashed changes
         <scene sceneID="fOn-ZM-2ni">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ksd-Y5-tKa" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -296,16 +287,12 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <connections>
-<<<<<<< Updated upstream
-                        <segue destination="49e-Tb-3d3" kind="show" id="Gqb-6Q-wqX"/>
-=======
                         <outlet property="emailField" destination="DyV-47-6Yc" id="1gY-4t-C8v"/>
                         <outlet property="loginBtn" destination="tAK-z9-wjg" id="4On-zo-kFV"/>
                         <outlet property="passwordField" destination="t9v-dh-Bjz" id="00b-Cl-RSV"/>
                         <outlet property="registerBtn" destination="V7d-CU-SCe" id="Vg4-2n-W0i"/>
                         <outlet property="usernameField" destination="rbt-QR-9zG" id="NPk-88-HjO"/>
                         <segue destination="49e-Tb-3d3" kind="show" identifier="registerSuccessful" id="Gqb-6Q-wqX"/>
->>>>>>> Stashed changes
                     </connections>
                 </viewController>
             </objects>

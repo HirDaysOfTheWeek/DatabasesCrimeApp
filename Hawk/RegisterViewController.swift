@@ -28,14 +28,32 @@ class RegisterViewController: UIViewController {
     }
     
     @IBAction func goToLogin(_ sender: Any) {
-    
+
     
     }
     
     
     @IBAction func doRegister(_ sender: Any) {
-    
-    
+
+        let username = usernameField.text
+        let email = emailField.text
+        let password = passwordField.text
+        if username != nil && email != nil && password != nil {
+            Networking.register(userId: username!, email: email!, password: password!, completionHandler: {response, error in
+            let status:String = response?.value(forKey: "status") as! String
+            let okayStatus = "ok"
+            if status == okayStatus {
+                //next screen
+                let userID:String = response?.value(forKey: "userId") as! String
+                self.performSegue(withIdentifier: "registerSuccessful", sender: self)
+            }
+            else {
+                let message:String = response?.value(forKey: "message") as! String
+                print("message = \(message)")
+                }
+            })
+        }
+        
     }
     
     //create another viewController for login
@@ -43,15 +61,21 @@ class RegisterViewController: UIViewController {
     //make the register button work (just print for now)
     
     
-    
+
+    /*
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
+<<<<<<< HEAD
     
     }
     
+=======
+    }
+    */
+
 
 }

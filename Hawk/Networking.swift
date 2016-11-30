@@ -51,19 +51,19 @@ class Networking {
         }
     }
     
-    class func getCrimes(lat : Double, lon : Double, radius : Double, completionHandler: @escaping (NSDictionary?, NSError?) -> () ) {
+    class func getCrimes(lat : Double, lon : Double, radius : Double, completionHandler: @escaping (CrimesResponse?, NSError?) -> () ) {
         let getCrimesUrl = Networking().url! + "/getCrimes"
         let parameters : Parameters = [
             "lat" : lat,
             "lon" : lon,
             "radius" : radius
         ]
-        Alamofire.request(getCrimesUrl, parameters: parameters).responseJSON {
-            response in
+        Alamofire.request(getCrimesUrl, parameters : parameters).responseObject {
+            (response: DataResponse<CrimesResponse>) in
             
             switch response.result {
             case .success(let value):
-                completionHandler(value as? NSDictionary, nil)
+                completionHandler(value as CrimesResponse, nil)
             case .failure(let error):
                 completionHandler(nil, error as NSError?)
             }

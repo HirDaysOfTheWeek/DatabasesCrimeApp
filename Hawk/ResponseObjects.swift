@@ -9,6 +9,44 @@
 import Foundation
 import ObjectMapper
 
+
+class CrimesResponse: Mappable {
+    var status : String?
+    var crimes : [Crime]?
+    
+    required init?(map: Map) {
+        
+    }
+    
+    func mapping(map: Map) {
+        status <- map["status"]
+        crimes <- map["results"]
+    }
+}
+
+class Crime : Mappable {
+    var cId : String?
+    var cType : String?
+    var occurredAt : String?
+    var cityState : String?
+    var lat : Double?
+    var lon : Double?
+    
+    required init?(map: Map) {
+        
+    }
+    
+    func mapping(map: Map) {
+        cId <- map["cId"]
+        cType <- map["cType"]
+        occurredAt <- map["occurredAt"]
+        cityState <- map["citystate"]
+        lat <- map["lat"]
+        lon <- map["lon"]
+    }
+    
+}
+
 class ReviewsResponse: Mappable {
     var status : String?
     var message : String?

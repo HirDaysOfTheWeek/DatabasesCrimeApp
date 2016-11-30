@@ -26,6 +26,7 @@ class ReviewsTableViewController: UITableViewController, CLLocationManagerDelega
         self.navigationController?.navigationBar.tintColor = blueColor
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Post", style: UIBarButtonItemStyle.plain, target: self, action: #selector(goToPostReview))
         locationManager.delegate = self
+        locationManager.distanceFilter = 1000
         let authStatus = CLLocationManager.authorizationStatus()
         if authStatus != .authorizedWhenInUse {
             locationManager.requestWhenInUseAuthorization()
@@ -146,14 +147,16 @@ class ReviewsTableViewController: UITableViewController, CLLocationManagerDelega
     }
     */
 
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        let tabBarController = self.tabBarController as! GodViewController
+        let username = tabBarController.username
+        let destination = segue.destination as! PostReviewViewController
+        destination.userId = username
     }
-    */
+    
 
 }

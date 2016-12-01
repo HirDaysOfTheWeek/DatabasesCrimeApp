@@ -16,6 +16,8 @@ class RegisterViewController: UIViewController {
     @IBOutlet weak var loginBtn: UIButton!
     @IBOutlet weak var registerBtn: UIButton!
 
+    var userId:String!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -44,7 +46,7 @@ class RegisterViewController: UIViewController {
             let okayStatus = "ok"
             if status == okayStatus {
                 //next screen
-                let userID:String = response?.value(forKey: "userId") as! String
+                self.userId = response?.value(forKey: "userId") as! String
                 self.performSegue(withIdentifier: "registerSuccessful", sender: self)
             }
             else {
@@ -54,9 +56,9 @@ class RegisterViewController: UIViewController {
         
             })
         
+        }
     }
 
-}
     
     //create another viewController for login
     //make the button work 
@@ -64,12 +66,17 @@ class RegisterViewController: UIViewController {
     
     
 
-    /*
+
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        if segue.identifier == "registerSuccessful" {
+            let destination = segue.destination as! GodViewController
+            destination.username = self.userId
+        }
     }
-    */
+
+}
+
+ 

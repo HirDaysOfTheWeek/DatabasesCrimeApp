@@ -13,7 +13,7 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var usernameField: UITextField!
     @IBOutlet weak var passwordField: UITextField!
     @IBOutlet weak var loginBtn: UIButton!
-    
+    var userId:String!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,23 +31,24 @@ class LoginViewController: UIViewController {
         let password = passwordField.text
         if username != nil && password != nil {
             Networking.login(userId: username!, password: password!, completionHandler: {response, error in
-                    let status:String = response?.value(forKey: "status") as! String
-                    let okayStatus = "ok"
-                    if status == okayStatus {
-                        //next screen
-                        let userID:String = response?.value(forKey: "userId") as! String
-                        self.performSegue(withIdentifier: "loginSuccessful", sender: self)
-                    }
-                    else {
-                        let message:String = response?.value(forKey: "message") as! String
-                        let alert = UIAlertController(title: "Whoops", message: message, preferredStyle: UIAlertControllerStyle.alert)
-                        alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
-                        self.present(alert, animated: true, completion: nil)
-                    }
-                })
-            }
+                let status:String = response?.value(forKey: "status") as! String
+                let okayStatus = "ok"
+                if status == okayStatus {
+                    //next screen
+                    self.userId = response?.value(forKey: "userId") as! String
+                    self.performSegue(withIdentifier: "loginSuccessful", sender: self)
+                }
+                else {
+                    let message:String = response?.value(forKey: "message") as! String
+                    let alert = UIAlertController(title: "Whoops", message: message, preferredStyle: UIAlertControllerStyle.alert)
+                    alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+                    self.present(alert, animated: true, completion: nil)
+                }
+            })
+        }
 
     }
+  
     
     
 
@@ -55,9 +56,10 @@ class LoginViewController: UIViewController {
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
-    //override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-    
-    //}
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let destination = segue.destination as! GodViewController
+        destination.username = self.userId
+    }
         
         
         // Get the new view controller using segue.destinationViewController.
@@ -65,5 +67,4 @@ class LoginViewController: UIViewController {
 
 }
 
-}
 

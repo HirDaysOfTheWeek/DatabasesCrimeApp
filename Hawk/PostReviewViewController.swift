@@ -31,9 +31,11 @@ class PostReviewViewController: UIViewController, CLLocationManagerDelegate {
     self.navigationItem.title = "Post a Review"
     self.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Back", style: UIBarButtonItemStyle.plain, target: self, action: #selector(goBack))
     self.navigationController?.navigationBar.tintColor = blueColor
-    let yellowColor = UIColor.init(red: 255/255, green: 235/255, blue: 59/255, alpha: 1.0)
-    self.view.backgroundColor = yellowColor
-    self.navigationController?.navigationBar.barTintColor = yellowColor
+    let background =  UIColor.init(red: 125/255, green: 77/255, blue: 255/255, alpha: 1.0)
+    self.view.backgroundColor = background
+    self.navigationController?.navigationBar.barTintColor = background
+    self.cityStateField.textColor = .white
+    self.ratingLabel.textColor = .white
     self.postBtn.backgroundColor = blueColor
     self.postBtn.setTitleColor(.white, for: .normal)
     //self.cityStateField.text = "15 Hartwell Street, New Brunswick, NJ 08901"

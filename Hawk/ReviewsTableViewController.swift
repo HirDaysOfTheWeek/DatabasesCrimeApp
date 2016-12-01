@@ -19,14 +19,14 @@ class ReviewsTableViewController: UITableViewController, CLLocationManagerDelega
         super.viewDidLoad()
         let footer:UIView = UIView.init(frame: .zero)
         self.tableView.tableFooterView = footer
-        let yellowColor = UIColor.init(red: 255/255, green: 235/255, blue: 59/255, alpha: 1.0)
-        self.view.backgroundColor = yellowColor
+        let backgroundBlue = UIColor.init(red: 125/255, green: 77/255, blue: 255/255, alpha: 1.0)
+        self.view.backgroundColor = backgroundBlue
         self.navigationItem.title = "Reviews"
-        self.navigationController?.navigationBar.barTintColor = yellowColor
+        self.navigationController?.navigationBar.barTintColor = backgroundBlue
         self.navigationController?.navigationBar.tintColor = blueColor
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Post", style: UIBarButtonItemStyle.plain, target: self, action: #selector(goToPostReview))
         locationManager.delegate = self
-        locationManager.distanceFilter = 1000
+        //locationManager.distanceFilter = 1000
         let authStatus = CLLocationManager.authorizationStatus()
         if authStatus != .authorizedWhenInUse {
             locationManager.requestWhenInUseAuthorization()
@@ -152,9 +152,9 @@ class ReviewsTableViewController: UITableViewController, CLLocationManagerDelega
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let tabBarController = self.tabBarController as! GodViewController
+        let tabBarController = self.navigationController?.tabBarController as! GodViewController
         let username = tabBarController.username
-        let destination = segue.destination as! PostReviewViewController
+        let destination = segue.destination.childViewControllers[0] as! PostReviewViewController
         destination.userId = username
     }
     

@@ -57,8 +57,10 @@ class LoginViewController: UIViewController {
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "loginSuccessful" {
         let destination = segue.destination as! GodViewController
         destination.username = self.userId
+        }
     }
         
         

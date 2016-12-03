@@ -17,6 +17,10 @@ class LoginViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        let background =  UIColor.init(red: 125/255, green: 77/255, blue: 255/255, alpha: 1.0)
+        self.view.backgroundColor = background
+        self.navigationController?.navigationBar.barTintColor = background
+        
         //self.view.backgroundColor = [UIColor b];
         // Do any additional setup after loading the view.
     }
@@ -58,6 +62,7 @@ class LoginViewController: UIViewController {
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "loginSuccessful" {
+        print("woohoo")
         let destination = segue.destination as! GodViewController
         destination.username = self.userId
         }

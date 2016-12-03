@@ -6,6 +6,22 @@
 //  Copyright © 2016 HirDaysOfTheWeek. All rights reserved.
 //
 
+/*
+ to add: 
+    date/time/exact address of crimes?
+    maybe a list view 
+    me tab: list of own reviews
+    date/time/exact address of crimes?
+    maybe a list view
+    me tab: list of own reviews
+    logos!
+    more complicated data
+        local ratings
+            - average rating within 1 mile radius?
+	nearby cities with the least crimes (for complicated sql queries ;_;)
+    display location of reviews tab
+ */
+
 import UIKit
 import MapKit
 import CoreLocation
@@ -18,6 +34,8 @@ class CrimesViewController: UIViewController, MKMapViewDelegate, CLLocationManag
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        let background =  UIColor.init(red: 125/255, green: 77/255, blue: 255/255, alpha: 1.0)
+        self.navigationController?.navigationBar.barTintColor = background
         locationManager.delegate = self
         locationManager.distanceFilter = 500
         let authStatus = CLLocationManager.authorizationStatus()

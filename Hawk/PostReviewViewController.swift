@@ -30,7 +30,7 @@ class PostReviewViewController: UIViewController, CLLocationManagerDelegate {
     locationManager.startUpdatingLocation()
     self.navigationItem.title = "Post a Review"
     self.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Back", style: UIBarButtonItemStyle.plain, target: self, action: #selector(goBack))
-    self.navigationController?.navigationBar.tintColor = blueColor
+    self.navigationController?.navigationBar.tintColor = .white
     let background =  UIColor.init(red: 125/255, green: 77/255, blue: 255/255, alpha: 1.0)
     self.view.backgroundColor = background
     self.navigationController?.navigationBar.barTintColor = background

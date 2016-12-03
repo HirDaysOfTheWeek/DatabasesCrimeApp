@@ -7,6 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2B32E3101DF20949006B4FED /* ReviewsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B32E30F1DF20949006B4FED /* ReviewsTableViewController.swift */; };
+		2B32E3121DF2094E006B4FED /* ResponseObjects.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B32E3111DF2094E006B4FED /* ResponseObjects.swift */; };
+		2B32E3141DF2096C006B4FED /* PostReviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B32E3131DF2096C006B4FED /* PostReviewViewController.swift */; };
+		2B32E3161DF2097A006B4FED /* CrimesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B32E3151DF2097A006B4FED /* CrimesViewController.swift */; };
+		2B32E3181DF209DC006B4FED /* GodViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B32E3171DF209DC006B4FED /* GodViewController.swift */; };
+		2B32E31A1DF209E4006B4FED /* RatingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B32E3191DF209E4006B4FED /* RatingTableViewCell.swift */; };
+		2B32E31C1DF20B0A006B4FED /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B32E31B1DF20B0A006B4FED /* LoginViewController.swift */; };
+		2B32E31E1DF20C65006B4FED /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B32E31D1DF20C65006B4FED /* ProfileViewController.swift */; };
 		2B6FFA581DD6750300BB6ED5 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B6FFA571DD6750300BB6ED5 /* RegisterViewController.swift */; };
 		2E308FFE1DC1695A00F25B91 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E308FFD1DC1695A00F25B91 /* AppDelegate.swift */; };
 		2E3090001DC1695A00F25B91 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E308FFF1DC1695A00F25B91 /* FirstViewController.swift */; };
@@ -38,6 +46,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2B32E30F1DF20949006B4FED /* ReviewsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReviewsTableViewController.swift; sourceTree = "<group>"; };
+		2B32E3111DF2094E006B4FED /* ResponseObjects.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResponseObjects.swift; sourceTree = "<group>"; };
+		2B32E3131DF2096C006B4FED /* PostReviewViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostReviewViewController.swift; sourceTree = "<group>"; };
+		2B32E3151DF2097A006B4FED /* CrimesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CrimesViewController.swift; sourceTree = "<group>"; };
+		2B32E3171DF209DC006B4FED /* GodViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GodViewController.swift; sourceTree = "<group>"; };
+		2B32E3191DF209E4006B4FED /* RatingTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RatingTableViewCell.swift; sourceTree = "<group>"; };
+		2B32E31B1DF20B0A006B4FED /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		2B32E31D1DF20C65006B4FED /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		2B6FFA571DD6750300BB6ED5 /* RegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		2E308FFA1DC1695A00F25B91 /* Hawk.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Hawk.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2E308FFD1DC1695A00F25B91 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -119,14 +135,22 @@
 		2E308FFC1DC1695A00F25B91 /* Hawk */ = {
 			isa = PBXGroup;
 			children = (
+				2B32E3171DF209DC006B4FED /* GodViewController.swift */,
+				2B32E3191DF209E4006B4FED /* RatingTableViewCell.swift */,
 				2E308FFD1DC1695A00F25B91 /* AppDelegate.swift */,
+				2B32E31B1DF20B0A006B4FED /* LoginViewController.swift */,
 				2E308FFF1DC1695A00F25B91 /* FirstViewController.swift */,
 				2E3090011DC1695A00F25B91 /* SecondViewController.swift */,
+				2B32E3151DF2097A006B4FED /* CrimesViewController.swift */,
 				2E3090031DC1695A00F25B91 /* Main.storyboard */,
 				2E3090061DC1695A00F25B91 /* Assets.xcassets */,
 				2E3090081DC1695A00F25B91 /* LaunchScreen.storyboard */,
 				2E30900B1DC1695A00F25B91 /* Info.plist */,
+				2B32E31D1DF20C65006B4FED /* ProfileViewController.swift */,
+				2B32E3111DF2094E006B4FED /* ResponseObjects.swift */,
+				2B32E30F1DF20949006B4FED /* ReviewsTableViewController.swift */,
 				2B6FFA571DD6750300BB6ED5 /* RegisterViewController.swift */,
+				2B32E3131DF2096C006B4FED /* PostReviewViewController.swift */,
 				2EED8FA91DD6E73100762054 /* Networking.swift */,
 			);
 			path = Hawk;
@@ -343,10 +367,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2B32E31C1DF20B0A006B4FED /* LoginViewController.swift in Sources */,
+				2B32E3141DF2096C006B4FED /* PostReviewViewController.swift in Sources */,
+				2B32E3121DF2094E006B4FED /* ResponseObjects.swift in Sources */,
 				2E3090021DC1695A00F25B91 /* SecondViewController.swift in Sources */,
+				2B32E3181DF209DC006B4FED /* GodViewController.swift in Sources */,
+				2B32E3101DF20949006B4FED /* ReviewsTableViewController.swift in Sources */,
+				2B32E3161DF2097A006B4FED /* CrimesViewController.swift in Sources */,
 				2EED8FAA1DD6E73100762054 /* Networking.swift in Sources */,
 				2E308FFE1DC1695A00F25B91 /* AppDelegate.swift in Sources */,
 				2E3090001DC1695A00F25B91 /* FirstViewController.swift in Sources */,
+				2B32E31E1DF20C65006B4FED /* ProfileViewController.swift in Sources */,
+				2B32E31A1DF209E4006B4FED /* RatingTableViewCell.swift in Sources */,
 				2B6FFA581DD6750300BB6ED5 /* RegisterViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

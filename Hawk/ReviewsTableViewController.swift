@@ -20,10 +20,11 @@ class ReviewsTableViewController: UITableViewController, CLLocationManagerDelega
         let footer:UIView = UIView.init(frame: .zero)
         self.tableView.tableFooterView = footer
         let backgroundBlue = UIColor.init(red: 125/255, green: 77/255, blue: 255/255, alpha: 1.0)
+        //let backgroundBlue = UIColor.init(red: 53/255, green: 10/255, blue: 109/255, alpha: 1.0)
         self.view.backgroundColor = backgroundBlue
         self.navigationItem.title = "Reviews"
         self.navigationController?.navigationBar.barTintColor = backgroundBlue
-        self.navigationController?.navigationBar.tintColor = blueColor
+        self.navigationController?.navigationBar.tintColor = .white
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Post", style: UIBarButtonItemStyle.plain, target: self, action: #selector(goToPostReview))
         locationManager.delegate = self
         //locationManager.distanceFilter = 1000
@@ -74,7 +75,8 @@ class ReviewsTableViewController: UITableViewController, CLLocationManagerDelega
         let ratingStr:String = String(format: "Rating: %.2f", review.rating!)
         cell.ratingTable?.text = ratingStr
         cell.ratingTable?.textColor = .white
-        cell.backgroundColor = blueColor
+        cell.backgroundColor = UIColor.init(red: 53/255, green: 10/255, blue: 109/255, alpha: 1.0)
+        //blueColor
         return cell
     }
     

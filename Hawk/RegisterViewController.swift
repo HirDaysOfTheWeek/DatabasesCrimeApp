@@ -20,6 +20,10 @@ class RegisterViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        let background =  UIColor.init(red: 125/255, green: 77/255, blue: 255/255, alpha: 1.0)
+        self.view.backgroundColor = background
+        self.navigationController?.navigationBar.barTintColor = background
+        
 
         // Do any additional setup after loading the view.
     }

@@ -14,7 +14,7 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
     @IBOutlet weak var avgRatingLabel: UILabel!
     @IBOutlet weak var reviewsTable: UITableView!
     var reviews = [Review]()
-   
+   let background =  UIColor.init(red: 125/255, green: 77/255, blue: 255/255, alpha: 1.0)
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,13 +22,21 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
         let username = god.username
         self.reviewsTable.delegate = self
         self.reviewsTable.dataSource = self
-        self.reviewsTable.isHidden = true
+        
         usernameLabel.text = username
-        let background =  UIColor.init(red: 125/255, green: 77/255, blue: 255/255, alpha: 1.0)
+        
         self.view.backgroundColor = background
         self.navigationController?.navigationBar.barTintColor = background
         self.usernameLabel.textColor = .white
         self.avgRatingLabel.textColor = .white
+        
+        // Do any additional setup after loading the view.
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        let god = self.tabBarController as! GodViewController
+        let username = god.username
         Networking.getReviewsByUserId(userId: username!, completionHandler: {response, error in
             
             let status = response?.status
@@ -49,8 +57,6 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
             }
             
         })
-
-        // Do any additional setup after loading the view.
     }
 
     override func didReceiveMemoryWarning() {
@@ -69,18 +75,21 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
         return self.reviews.count
     }
     
-    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath) as! RatingTableViewCell
-        
+        print("cells")
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! RatingTableViewCell
+        cell.backgroundColor = background
         // Configure the cell...
         let row = indexPath.row
         let review = self.reviews[row]
         let userIdStr = "User: " + review.userId!
         cell.usernameLabel?.text = userIdStr
+        print("UserIdStr = " + userIdStr)
         let commentStr = "Comments: " + review.comments!
+        print("CommentStr = " + commentStr)
         cell.commentsLabel?.text = commentStr
         let ratingStr:String = String(format: "Rating: %.2f", review.rating!)
+        print("RatingStr = " + ratingStr)
         cell.ratingTable?.text = ratingStr
         return cell
     }

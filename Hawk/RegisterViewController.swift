@@ -23,8 +23,9 @@ class RegisterViewController: UIViewController {
         let background =  UIColor.init(red: 125/255, green: 77/255, blue: 255/255, alpha: 1.0)
         self.view.backgroundColor = background
         self.navigationController?.navigationBar.barTintColor = background
-        
-
+        self.usernameField.textColor = .black
+        self.emailField.textColor = .black
+        self.passwordField.textColor = .black
         // Do any additional setup after loading the view.
     }
 

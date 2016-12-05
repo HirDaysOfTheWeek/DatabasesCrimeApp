@@ -13,6 +13,8 @@ class RatingTableViewCell: UITableViewCell {
     @IBOutlet var ratingTable: UILabel!
     @IBOutlet var commentsLabel: UILabel!
     @IBOutlet var usernameLabel: UILabel!
+    @IBOutlet var upvoteBtn: UIButton!
+    @IBOutlet var downvoteBtn: UIButton!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

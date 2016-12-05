@@ -22,7 +22,7 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
         let username = god.username
         self.reviewsTable.delegate = self
         self.reviewsTable.dataSource = self
-        
+        self.reviewsTable.backgroundColor = background
         usernameLabel.text = username
         
         self.view.backgroundColor = background
@@ -76,7 +76,6 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        print("cells")
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! RatingTableViewCell
         cell.backgroundColor = background
         // Configure the cell...
@@ -84,13 +83,13 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
         let review = self.reviews[row]
         let userIdStr = "User: " + review.userId!
         cell.usernameLabel?.text = userIdStr
-        print("UserIdStr = " + userIdStr)
+        cell.usernameLabel?.textColor = .white
         let commentStr = "Comments: " + review.comments!
-        print("CommentStr = " + commentStr)
         cell.commentsLabel?.text = commentStr
+        cell.commentsLabel?.textColor = .white
         let ratingStr:String = String(format: "Rating: %.2f", review.rating!)
-        print("RatingStr = " + ratingStr)
         cell.ratingTable?.text = ratingStr
+        cell.ratingTable?.textColor = .white
         return cell
     }
 

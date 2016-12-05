@@ -91,6 +91,25 @@ class Networking {
         }
     }
     
+    class func voteReview(rId : Int, userId : String, upvote : Bool, completionHandler: @escaping(NSDictionary?, NSError?) -> ()) {
+        let voteReviewUrl = Networking().url! + "/voteForReview"
+        let parameters : Parameters = [
+            "rId" : rId,
+            "userId" : userId,
+            "upvote" : upvote
+        ]
+        Alamofire.request(voteReviewUrl, method: .post, parameters : parameters).responseJSON {
+            response in
+            
+            switch response.result {
+            case .success(let value):
+                completionHandler(value as? NSDictionary, nil)
+            case .failure(let error):
+                completionHandler(nil, error as NSError?)
+            }
+        }
+    }
+    
     class func getReviews(lat : Double, lon : Double, radius: Double, completionHandler : @escaping (ReviewsResponse?, NSError?) -> ()) {
         let getReviewsUrl = Networking().url! + "/getReviews"
         let parameters : Parameters = [
@@ -126,6 +145,25 @@ class Networking {
             }
         }
     }
+    
+    class func getVotedReviews(userId: String, completionHandler: @escaping (ReviewsResponse?, NSError?) ->()) {
+        let getVotedReviewsUrl = Networking().url! + "/getVotedReviews"
+        let parameters : Parameters = [
+            "userId" : userId
+        ]
+        Alamofire.request(getVotedReviewsUrl, parameters : parameters).responseJSON {
+            response in
+            
+            switch response.result {
+            case .success(let value):
+                completionHandler(value as? ReviewsResponse, nil)
+            case .failure(let error):
+                completionHandler(nil, error as NSError?)
+            }
+
+        }
+    }
+    
     
     class func updateCrimes(lat : Double, lon : Double, radius: Double, completionHandler : @escaping (NSDictionary?, NSError?) -> ()) {
         let updateCrimesUrl = Networking().url! + "/updateCrimes"

@@ -76,6 +76,8 @@ class ReviewsTableViewController: UITableViewController, CLLocationManagerDelega
         cell.ratingTable?.text = ratingStr
         cell.ratingTable?.textColor = .white
         cell.backgroundColor = UIColor.init(red: 53/255, green: 10/255, blue: 109/255, alpha: 1.0)
+        cell.upvoteBtn.tag = indexPath.row
+        cell.upvoteBtn.addTarget(self, action: #selector(self.upvote(sender:)), for: .touchUpInside)
         //blueColor
         return cell
     }
@@ -110,6 +112,15 @@ class ReviewsTableViewController: UITableViewController, CLLocationManagerDelega
         })
     }
 
+    func upvote(sender: UIButton) {
+        let tag = sender.tag
+        let review = self.reviews[tag]
+        let rId = review.rId
+        let god = self.navigationController?.tabBarController as! GodViewController
+        let userId = god.username
+        
+    }
+    
     func goToPostReview() {
         self.performSegue(withIdentifier: "goToPostReview", sender: self)
     }

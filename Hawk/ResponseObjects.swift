@@ -9,6 +9,33 @@
 import Foundation
 import ObjectMapper
 
+class VoteResponse: Mappable {
+    var votes: [Vote]?
+    required init?(map: Map) {
+        
+    }
+    
+    func mapping(map: Map) {
+        votes <- map["votes"]
+    }
+   
+}
+
+class Vote: Mappable {
+    var rId : Int?
+    var userId : String?
+    var vote : Int?
+    
+    required init?(map: Map) {
+        
+    }
+    
+    func mapping(map: Map) {
+        rId <- map["rId"]
+        userId <- map["userId"]
+        vote <- map["vote"]
+    }
+}
 
 class CrimesResponse: Mappable {
     var status : String?

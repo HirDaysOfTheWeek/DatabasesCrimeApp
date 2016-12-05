@@ -25,6 +25,16 @@ class LoginViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
 
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        let defaults = UserDefaults.standard
+        let u = defaults.string(forKey: "userId")
+        self.userId = u
+        if u != nil {
+            self.performSegue(withIdentifier: "loginSuccessful", sender: self)
+        }
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -40,6 +50,8 @@ class LoginViewController: UIViewController {
                 if status == okayStatus {
                     //next screen
                     self.userId = response?.value(forKey: "userId") as! String
+                    let defaults = UserDefaults.standard
+                    defaults.set(self.userId, forKey: "userId")
                     self.performSegue(withIdentifier: "loginSuccessful", sender: self)
                 }
                 else {

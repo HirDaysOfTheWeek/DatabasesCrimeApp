@@ -146,21 +146,20 @@ class Networking {
         }
     }
     
-    class func getVotedReviews(userId: String, completionHandler: @escaping (ReviewsResponse?, NSError?) ->()) {
+    class func getVotes(userId: String, completionHandler: @escaping (VoteResponse?, NSError?) ->()) {
         let getVotedReviewsUrl = Networking().url! + "/getVotedReviews"
         let parameters : Parameters = [
             "userId" : userId
         ]
-        Alamofire.request(getVotedReviewsUrl, parameters : parameters).responseJSON {
-            response in
+        Alamofire.request(getVotedReviewsUrl, parameters : parameters).responseObject {
+            (response: DataResponse<VoteResponse>) in
             
             switch response.result {
             case .success(let value):
-                completionHandler(value as? ReviewsResponse, nil)
+                completionHandler(value as VoteResponse, nil)
             case .failure(let error):
                 completionHandler(nil, error as NSError?)
             }
-
         }
     }
     

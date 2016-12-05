@@ -29,6 +29,16 @@ class RegisterViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
 
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        let defaults = UserDefaults.standard
+        let u = defaults.string(forKey: "userId")
+        self.userId = u
+        if u != nil {
+            self.performSegue(withIdentifier: "registerSuccessful", sender: self)
+        }
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -52,6 +62,8 @@ class RegisterViewController: UIViewController {
             if status == okayStatus {
                 //next screen
                 self.userId = response?.value(forKey: "userId") as! String
+                let defaults = UserDefaults.standard
+                defaults.set(self.userId, forKey: "userId")
                 self.performSegue(withIdentifier: "registerSuccessful", sender: self)
             }
             else {

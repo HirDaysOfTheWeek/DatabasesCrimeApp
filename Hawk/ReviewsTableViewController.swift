@@ -12,6 +12,7 @@ import CoreLocation
 class ReviewsTableViewController: UITableViewController, CLLocationManagerDelegate {
 
     var reviews = [Review]()
+    var voted = [Vote]()
     let locationManager = CLLocationManager()
     let blueColor = UIColor(red: 33/255, green: 150/255, blue: 243/255, alpha: 1.0)
     
@@ -27,7 +28,7 @@ class ReviewsTableViewController: UITableViewController, CLLocationManagerDelega
         self.navigationController?.navigationBar.tintColor = .white
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Post", style: UIBarButtonItemStyle.plain, target: self, action: #selector(goToPostReview))
         locationManager.delegate = self
-        //locationManager.distanceFilter = 1000
+        locationManager.distanceFilter = 1000
         let authStatus = CLLocationManager.authorizationStatus()
         if authStatus != .authorizedWhenInUse {
             locationManager.requestWhenInUseAuthorization()
@@ -66,6 +67,25 @@ class ReviewsTableViewController: UITableViewController, CLLocationManagerDelega
         // Configure the cell...
         let row = indexPath.row
         let review = self.reviews[row]
+        var vote : Vote!
+        for v in self.voted {
+            print("rId in voted = \(v.rId)")
+            if v.rId == review.rId {
+                vote = v
+            }
+        }
+        if vote != nil {
+            let val = vote.vote
+            if val == 1 {
+                cell.upvoteBtn.setTitle("Upvoted", for: .normal)
+                cell.upvoteBtn.isEnabled = false
+                cell.downvoteBtn.isHidden = true
+            } else {
+                cell.downvoteBtn.setTitle("Downvoted", for: .normal)
+                cell.downvoteBtn.isEnabled = false
+                cell.upvoteBtn.isHidden = true
+            }
+        }
         let userIdStr = "User: " + review.userId!
         cell.usernameLabel?.text = userIdStr
         cell.usernameLabel?.textColor = .white
@@ -76,8 +96,10 @@ class ReviewsTableViewController: UITableViewController, CLLocationManagerDelega
         cell.ratingTable?.text = ratingStr
         cell.ratingTable?.textColor = .white
         cell.backgroundColor = UIColor.init(red: 53/255, green: 10/255, blue: 109/255, alpha: 1.0)
-        cell.upvoteBtn.tag = indexPath.row
+        cell.upvoteBtn.tag = row
+        cell.downvoteBtn.tag = self.reviews.count + row
         cell.upvoteBtn.addTarget(self, action: #selector(self.upvote(sender:)), for: .touchUpInside)
+        cell.downvoteBtn.addTarget(self, action: #selector(self.downvote(sender:)), for: .touchUpInside)
         //blueColor
         return cell
     }
@@ -88,6 +110,7 @@ class ReviewsTableViewController: UITableViewController, CLLocationManagerDelega
         }
     }
     
+    var once = true
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         
         let location = locations[0]
@@ -102,7 +125,27 @@ class ReviewsTableViewController: UITableViewController, CLLocationManagerDelega
                 if let r = response?.reviews {
                     print("Has reviews")
                     self.reviews = r
-                    self.tableView.reloadData()
+                    if (self.once) {
+                        let god = self.navigationController?.tabBarController as? GodViewController
+                        let username = god?.username
+                        Networking.getVotes(userId: username!, completionHandler: {
+                            res, err in
+                            if res != nil {
+                                print("Has votes")
+                                self.voted = (res?.votes)!
+                            } else {
+                                print("res is nil")
+                                if err != nil {
+                                    print("err = \(err?.localizedDescription)")
+                                }
+                            }
+                            self.tableView.reloadData()
+                            self.once = false
+                        })
+                    } else {
+                        self.reviews = r
+                        self.tableView.reloadData()
+                    }
                 }
             }
             else {
@@ -112,13 +155,50 @@ class ReviewsTableViewController: UITableViewController, CLLocationManagerDelega
         })
     }
 
-    func upvote(sender: UIButton) {
+    func upvote(sender: UIButton!) {
+        print("upvoted")
         let tag = sender.tag
         let review = self.reviews[tag]
         let rId = review.rId
         let god = self.navigationController?.tabBarController as! GodViewController
         let userId = god.username
-        
+        Networking.voteReview(rId: rId!, userId: userId!, upvote: true, completionHandler: {
+            response, error in
+            if error == nil {
+                let status = (response?["status"] as! String)
+                print("status =\(status)")
+                if status == "ok" {
+                    sender.setTitle("Upvoted", for: .normal)
+                    sender.isEnabled = false
+                    let downvoteBtn = self.view.viewWithTag(self.reviews.count + tag) as? UIButton
+                    downvoteBtn?.isHidden = true
+                }
+            } else {
+                print("error = \(error?.localizedDescription)")
+            }
+        })
+    }
+    
+    func downvote(sender: UIButton) {
+        let tag = sender.tag
+        let row = tag - self.reviews.count
+        let review = self.reviews[row]
+        let rId = review.rId
+        let god = self.navigationController?.tabBarController as! GodViewController
+        let userId = god.username
+        Networking.voteReview(rId: rId!, userId: userId!, upvote: false, completionHandler: {
+            response, error in
+            
+            if error == nil {
+                let status = (response?["status"] as! String)
+                if status == "ok" {
+                    sender.setTitle("Downvoted", for: .normal)
+                    sender.isEnabled = false
+                    let upvoteBtn = self.view.viewWithTag(row) as? UIButton
+                    upvoteBtn?.isHidden = true
+                }
+            }
+        })
     }
     
     func goToPostReview() {

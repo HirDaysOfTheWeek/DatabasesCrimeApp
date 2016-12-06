@@ -77,8 +77,9 @@ class CrimesViewController: UIViewController, MKMapViewDelegate, CLLocationManag
                         let radToDegrees = 57.2958
                         let coordinate = CLLocationCoordinate2DMake(crime.lat! * radToDegrees, crime.lon! * radToDegrees)
                         annotation.coordinate = coordinate
+                        let details = crime.cityState! + " - " + crime.occurredAt!
                         annotation.title = crime.cType
-                        annotation.subtitle = crime.cityState
+                        annotation.subtitle = details
                         self.mapView.addAnnotation(annotation)
                     }
                 }

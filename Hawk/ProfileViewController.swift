@@ -14,24 +14,41 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
     @IBOutlet weak var avgRatingLabel: UILabel!
     @IBOutlet weak var reviewsTable: UITableView!
     var reviews = [Review]()
-   let background =  UIColor.init(red: 125/255, green: 77/255, blue: 255/255, alpha: 1.0)
+   let background =  UIColor.init(red: 0/255, green: 0/255, blue: 0/255, alpha: 1.0)
     
     override func viewDidLoad() {
+        
         super.viewDidLoad()
+        UIApplication.shared.statusBarStyle = .lightContent
+        
         let god = self.tabBarController as! GodViewController
         let username = god.username
+        self.navigationItem.title = "Me"
+        self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.white]
+        self.navigationController?.navigationBar.barTintColor = UIColor.init(red:33/250, green:33/250, blue:33/250, alpha: 1.0)
+        self.navigationController?.navigationBar.tintColor = .orange
         self.reviewsTable.delegate = self
         self.reviewsTable.dataSource = self
         self.reviewsTable.backgroundColor = background
         usernameLabel.text = username
-        
+        self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.white]
         self.view.backgroundColor = background
         self.navigationController?.navigationBar.barTintColor = background
         self.usernameLabel.textColor = .white
-        self.avgRatingLabel.textColor = .white
+        self.avgRatingLabel.textColor = .orange
         
         // Do any additional setup after loading the view.
     }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        UIApplication.shared.statusBarStyle = .lightContent
+    }
+    
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
+    
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -77,7 +94,7 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! RatingTableViewCell
-        cell.backgroundColor = background
+        cell.backgroundColor = UIColor.init(red:33/255, green:33/255, blue:33/255, alpha: 1.0)
         // Configure the cell...
         let row = indexPath.row
         let review = self.reviews[row]
@@ -89,7 +106,7 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
         cell.commentsLabel?.textColor = .white
         let ratingStr:String = String(format: "Rating: %.2f", review.rating!)
         cell.ratingTable?.text = ratingStr
-        cell.ratingTable?.textColor = .white
+        cell.ratingTable?.textColor = .orange
         return cell
     }
 

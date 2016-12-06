@@ -17,8 +17,16 @@ class LoginViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let background =  UIColor.init(red: 125/255, green: 77/255, blue: 255/255, alpha: 1.0)
-        self.view.backgroundColor = background
+        
+        UIGraphicsBeginImageContext(self.view.frame.size)
+        let bgImage = UIImage(named: "NYView.png")
+        bgImage?.draw(in: CGRect(x: 0.0, y: 0.0, width: self.view.bounds.width, height: self.view.bounds.height))
+        //bgImage?.draw(in: self.view.bounds)
+        UIGraphicsEndImageContext()
+        self.view.backgroundColor = UIColor(patternImage: bgImage!)
+        
+        let background =  UIColor.init(red: 33/255, green: 33/255, blue: 33/255, alpha: 1.0)
+        //self.view.backgroundColor = background
         self.navigationController?.navigationBar.barTintColor = background
         
         //self.view.backgroundColor = [UIColor b];
@@ -31,7 +39,7 @@ class LoginViewController: UIViewController {
         let u = defaults.string(forKey: "userId")
         self.userId = u
         if u != nil {
-            self.performSegue(withIdentifier: "loginSuccessful", sender: self)
+            //self.performSegue(withIdentifier: "loginSuccessful", sender: self)
         }
     }
     

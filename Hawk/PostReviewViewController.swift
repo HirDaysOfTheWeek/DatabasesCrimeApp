@@ -24,19 +24,21 @@ class PostReviewViewController: UIViewController, CLLocationManagerDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+    
     locationManager.delegate = self
     locationManager.desiredAccuracy = kCLLocationAccuracyBest
     locationManager.distanceFilter = 1000
     locationManager.startUpdatingLocation()
+    self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.white]
     self.navigationItem.title = "Post a Review"
     self.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Back", style: UIBarButtonItemStyle.plain, target: self, action: #selector(goBack))
-    self.navigationController?.navigationBar.tintColor = .white
-    let background =  UIColor.init(red: 125/255, green: 77/255, blue: 255/255, alpha: 1.0)
+    self.navigationController?.navigationBar.tintColor = .orange
+    let background =  UIColor.init(red: 33/255, green: 33/255, blue: 33/255, alpha: 1.0)
     self.view.backgroundColor = background
     self.navigationController?.navigationBar.barTintColor = background
     self.cityStateField.textColor = .white
-    self.ratingLabel.textColor = .white
-    self.postBtn.backgroundColor = blueColor
+    self.ratingLabel.textColor = .orange
+    self.postBtn.backgroundColor =  .orange
     self.postBtn.setTitleColor(.white, for: .normal)
     //self.cityStateField.text = "15 Hartwell Street, New Brunswick, NJ 08901"
     let unitStep = Double(ratingSlider.value) / step

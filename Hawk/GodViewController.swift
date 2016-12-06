@@ -14,9 +14,9 @@ class GodViewController: UITabBarController {
     var username : String!
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.tabBar.tintColor = .white
-        self.tabBar.barTintColor = UIColor.init(red: 53/255, green: 10/255, blue: 109/255, alpha: 1.0)
-        
+        self.tabBar.tintColor = .orange
+        self.tabBar.barTintColor = UIColor.init(red: 0/255, green: 0/255, blue: 0/255, alpha: 1.0)
+                
         // Do any additional setup after loading the view.
     }
 

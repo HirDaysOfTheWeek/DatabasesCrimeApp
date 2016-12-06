@@ -20,12 +20,12 @@ class ReviewsTableViewController: UITableViewController, CLLocationManagerDelega
         super.viewDidLoad()
         let footer:UIView = UIView.init(frame: .zero)
         self.tableView.tableFooterView = footer
-        let backgroundBlue = UIColor.init(red: 125/255, green: 77/255, blue: 255/255, alpha: 1.0)
-        //let backgroundBlue = UIColor.init(red: 53/255, green: 10/255, blue: 109/255, alpha: 1.0)
+        let backgroundBlue = UIColor.init(red: 33/255, green: 33/255, blue: 33/255, alpha: 1.0)
         self.view.backgroundColor = backgroundBlue
-        self.navigationItem.title = "Reviews"
+        self.navigationItem.title = "Nearby Reviews"
+        self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.white]
         self.navigationController?.navigationBar.barTintColor = backgroundBlue
-        self.navigationController?.navigationBar.tintColor = .white
+        self.navigationController?.navigationBar.tintColor = .orange
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Post", style: UIBarButtonItemStyle.plain, target: self, action: #selector(goToPostReview))
         locationManager.delegate = self
         locationManager.distanceFilter = 1000
@@ -95,14 +95,14 @@ class ReviewsTableViewController: UITableViewController, CLLocationManagerDelega
         }
         let userIdStr = "User: " + review.userId!
         cell.usernameLabel?.text = userIdStr
-        cell.usernameLabel?.textColor = .white
+        cell.usernameLabel?.textColor = .orange
         let commentStr = "Comments: " + review.comments!
         cell.commentsLabel?.text = commentStr
         cell.commentsLabel?.textColor = .white
         let ratingStr:String = String(format: "Rating: %.2f", review.rating!)
         cell.ratingTable?.text = ratingStr
-        cell.ratingTable?.textColor = .white
-        cell.backgroundColor = UIColor.init(red: 53/255, green: 10/255, blue: 109/255, alpha: 1.0)
+        cell.ratingTable?.textColor = .orange
+        cell.backgroundColor = UIColor.init(red: 33/255, green: 33/255, blue: 33/255, alpha: 1.0)
         cell.upvoteBtn.tag = row
         cell.downvoteBtn.tag = -1 * row
         cell.upvoteBtn.addTarget(self, action: #selector(self.upvote(sender:)), for: .touchUpInside)
@@ -143,8 +143,10 @@ class ReviewsTableViewController: UITableViewController, CLLocationManagerDelega
                             res, err in
                             if res != nil {
                                 print("Has votes")
-                                self.voted = (res?.votes)!
-                            } else {
+                                if res?.votes != nil {
+                                    self.voted = (res?.votes)!
+                                }
+                                } else {
                                 print("res is nil")
                                 if err != nil {
                                     print("err = \(err?.localizedDescription)")

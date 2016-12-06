@@ -276,19 +276,19 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="KLU-eR-ljB">
-                                <rect key="frame" x="96" y="151" width="184" height="270"/>
+                                <rect key="frame" x="96" y="151" width="184" height="271"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Hawk" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ShS-hu-XL0">
-                                        <rect key="frame" x="47" y="0.0" width="90.5" height="38.5"/>
+                                        <rect key="frame" x="47" y="0.0" width="91" height="39"/>
                                         <fontDescription key="fontDescription" name="AmericanTypewriter" family="American Typewriter" pointSize="33"/>
                                         <color key="textColor" red="1" green="0.57558623619278881" blue="0.23972896464056648" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="7Lz-Xc-IF7">
-                                        <rect key="frame" x="0.0" y="38.5" width="184" height="50"/>
+                                        <rect key="frame" x="0.0" y="39" width="184" height="50"/>
                                     </stackView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fxu-ob-WyI">
-                                        <rect key="frame" x="88.5" y="88.5" width="7" height="31.5"/>
+                                        <rect key="frame" x="89" y="89" width="7" height="32"/>
                                         <attributedString key="attributedText">
                                             <fragment content=" ">
                                                 <attributes>
@@ -301,7 +301,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="TZB-fj-RJl">
-                                        <rect key="frame" x="29.5" y="120" width="125" height="150"/>
+                                        <rect key="frame" x="30" y="121" width="125" height="150"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Trd-GF-Oob">
                                                 <rect key="frame" x="0.0" y="0.0" width="125" height="150"/>
@@ -336,7 +336,7 @@
                                                                 </connections>
                                                             </button>
                                                             <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tAK-z9-wjg">
-                                                                <rect key="frame" x="41.5" y="120" width="42" height="30"/>
+                                                                <rect key="frame" x="41" y="120" width="42" height="30"/>
                                                                 <state key="normal" title="Log In">
                                                                     <color key="titleColor" red="0.76123165609999999" green="1" blue="0.97411383490000003" alpha="1" colorSpace="calibratedRGB"/>
                                                                 </state>
@@ -425,16 +425,16 @@
         <scene sceneID="wQg-Ve-FwZ">
             <objects>
                 <tableViewController id="NO8-PG-Mir" customClass="ReviewsTableViewController" customModule="Hawk" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="110" sectionHeaderHeight="28" sectionFooterHeight="28" id="eQK-lP-0zl">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="170" sectionHeaderHeight="28" sectionFooterHeight="28" id="eQK-lP-0zl">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="reuseIdentifier" id="D1x-v0-4R2" customClass="RatingTableViewCell" customModule="Hawk" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="375" height="110"/>
+                                <rect key="frame" x="0.0" y="28" width="375" height="170"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="D1x-v0-4R2" id="hcb-od-QQL">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="109"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="169"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tTy-ci-q4F">
@@ -459,23 +459,39 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yxo-Wl-Puq">
-                                            <rect key="frame" x="19" y="71" width="160" height="30"/>
+                                            <rect key="frame" x="19" y="98" width="160" height="30"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <state key="normal" title="Upvote"/>
                                         </button>
                                         <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="D2H-9p-hqR">
-                                            <rect key="frame" x="187" y="71" width="180" height="30"/>
+                                            <rect key="frame" x="187" y="98" width="180" height="30"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <state key="normal" title="Downvote"/>
                                         </button>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZOo-fG-qyz">
+                                            <rect key="frame" x="19" y="74" width="348" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="14"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yO7-er-hF4">
+                                            <rect key="frame" x="19" y="140" width="78" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="13"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="commentsLabel" destination="VZl-Qw-DVj" id="NtO-GJ-kfz"/>
+                                    <outlet property="dateLabel" destination="ZOo-fG-qyz" id="Zg4-yS-JGd"/>
                                     <outlet property="downvoteBtn" destination="D2H-9p-hqR" id="O0E-dc-xNT"/>
                                     <outlet property="ratingTable" destination="vDf-tg-XIv" id="sg8-rL-DVA"/>
                                     <outlet property="upvoteBtn" destination="Yxo-Wl-Puq" id="vXg-3p-gP8"/>
                                     <outlet property="usernameLabel" destination="tTy-ci-q4F" id="em6-6R-Wkn"/>
+                                    <outlet property="votesLabel" destination="yO7-er-hF4" id="J7p-b9-y7z"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -569,7 +585,7 @@
         <scene sceneID="ZgF-8r-Y0K">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Gfs-I4-OXN" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Reviews" id="wRw-sa-7xm"/>
+                    <tabBarItem key="tabBarItem" title="Reviews" image="review.png" id="wRw-sa-7xm"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="fRl-QB-bCP">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -624,6 +640,7 @@
     </scenes>
     <resources>
         <image name="mapicon.png" width="34" height="34"/>
+        <image name="review.png" width="29" height="29"/>
         <image name="user.png" width="31" height="31"/>
     </resources>
     <inferredMetricsTieBreakers>

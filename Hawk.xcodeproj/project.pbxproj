@@ -18,7 +18,8 @@
 		2B6FFA581DD6750300BB6ED5 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B6FFA571DD6750300BB6ED5 /* RegisterViewController.swift */; };
 		2B8BD2461DF77A0E005CEF52 /* NYView.png in Resources */ = {isa = PBXBuildFile; fileRef = 2B8BD2451DF77A0E005CEF52 /* NYView.png */; };
 		2B8BD2481DF77B5A005CEF52 /* mapicon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2B8BD2471DF77B5A005CEF52 /* mapicon@2x.png */; };
-		2B8BD24A1DF77DC4005CEF52 /* user@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2B8BD2491DF77DC4005CEF52 /* user@2x.png */; };
+		2B8BD24C1DF77FF6005CEF52 /* user@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2B8BD24B1DF77FF6005CEF52 /* user@2x.png */; };
+		2B8BD24E1DF780DA005CEF52 /* review@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2B8BD24D1DF780DA005CEF52 /* review@2x.png */; };
 		2E308FFE1DC1695A00F25B91 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E308FFD1DC1695A00F25B91 /* AppDelegate.swift */; };
 		2E3090001DC1695A00F25B91 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E308FFF1DC1695A00F25B91 /* FirstViewController.swift */; };
 		2E3090021DC1695A00F25B91 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E3090011DC1695A00F25B91 /* SecondViewController.swift */; };
@@ -61,7 +62,8 @@
 		2B6FFA571DD6750300BB6ED5 /* RegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		2B8BD2451DF77A0E005CEF52 /* NYView.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = NYView.png; sourceTree = "<group>"; };
 		2B8BD2471DF77B5A005CEF52 /* mapicon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "mapicon@2x.png"; sourceTree = "<group>"; };
-		2B8BD2491DF77DC4005CEF52 /* user@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "user@2x.png"; path = "../../../../../../Downloads/user@2x.png"; sourceTree = "<group>"; };
+		2B8BD24B1DF77FF6005CEF52 /* user@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "user@2x.png"; sourceTree = "<group>"; };
+		2B8BD24D1DF780DA005CEF52 /* review@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "review@2x.png"; sourceTree = "<group>"; };
 		2E308FFA1DC1695A00F25B91 /* Hawk.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Hawk.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2E308FFD1DC1695A00F25B91 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2E308FFF1DC1695A00F25B91 /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
@@ -151,8 +153,9 @@
 				2E308FFF1DC1695A00F25B91 /* FirstViewController.swift */,
 				2E3090011DC1695A00F25B91 /* SecondViewController.swift */,
 				2B32E3151DF2097A006B4FED /* CrimesViewController.swift */,
-				2B8BD2491DF77DC4005CEF52 /* user@2x.png */,
+				2B8BD24B1DF77FF6005CEF52 /* user@2x.png */,
 				2B8BD2471DF77B5A005CEF52 /* mapicon@2x.png */,
+				2B8BD24D1DF780DA005CEF52 /* review@2x.png */,
 				2E3090031DC1695A00F25B91 /* Main.storyboard */,
 				2E3090061DC1695A00F25B91 /* Assets.xcassets */,
 				2E3090081DC1695A00F25B91 /* LaunchScreen.storyboard */,
@@ -307,9 +310,10 @@
 				2E30900A1DC1695A00F25B91 /* LaunchScreen.storyboard in Resources */,
 				2B8BD2461DF77A0E005CEF52 /* NYView.png in Resources */,
 				2E3090071DC1695A00F25B91 /* Assets.xcassets in Resources */,
-				2B8BD24A1DF77DC4005CEF52 /* user@2x.png in Resources */,
+				2B8BD24C1DF77FF6005CEF52 /* user@2x.png in Resources */,
 				2E3090051DC1695A00F25B91 /* Main.storyboard in Resources */,
 				2B8BD2481DF77B5A005CEF52 /* mapicon@2x.png in Resources */,
+				2B8BD24E1DF780DA005CEF52 /* review@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -104,6 +104,7 @@ class Review : Mappable {
     var lat : Double?
     var lon : Double?
     var date : String?
+    var votes : Int?
 
     required init?(map: Map){
         
@@ -118,6 +119,7 @@ class Review : Mappable {
         lat <- map["lat"]
         lon <- map["lon"]
         date <- map["postDate"]
+        votes <- map["votes"]
     }
 
 }

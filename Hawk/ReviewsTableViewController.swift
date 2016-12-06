@@ -31,7 +31,6 @@ class ReviewsTableViewController: UITableViewController, CLLocationManagerDelega
         self.navigationController?.navigationBar.tintColor = .orange
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Post", style: UIBarButtonItemStyle.plain, target: self, action: #selector(goToPostReview))
         locationManager.delegate = self
-        locationManager.distanceFilter = 1000
         let authStatus = CLLocationManager.authorizationStatus()
         if authStatus != .authorizedWhenInUse {
             locationManager.requestWhenInUseAuthorization()
@@ -103,6 +102,12 @@ class ReviewsTableViewController: UITableViewController, CLLocationManagerDelega
         cell.commentsLabel?.text = commentStr
         cell.commentsLabel?.textColor = .white
         let ratingStr:String = String(format: "Rating: %.2f", review.rating!)
+        cell.dateLabel?.text = review.date
+        cell.dateLabel?.textColor = .orange
+        let voteStr:String = String(format: "Score: %d", review.votes!)
+        
+        cell.votesLabel?.text = voteStr
+        cell.votesLabel?.textColor = .white
         cell.ratingTable?.text = ratingStr
         cell.ratingTable?.textColor = .orange
         cell.backgroundColor = UIColor.init(red: 33/255, green: 33/255, blue: 33/255, alpha: 1.0)
@@ -114,15 +119,17 @@ class ReviewsTableViewController: UITableViewController, CLLocationManagerDelega
         return cell
     }
     
+    /*
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let row = indexPath.row
         let review = self.reviews[row]
         self.usernameStr = "User: " + review.userId!
         self.ratingStr = String(format: "Rating: %.2f", review.rating!)
         self.commentsStr = "Comments: " + review.comments!
-        self.performSegue(withIdentifier: "showReview", sender: self)
+        //self.performSegue(withIdentifier: "showReview", sender: self)
     }
-    
+        */
+ 
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
         if status == .authorizedWhenInUse {
             locationManager.startUpdatingLocation()

@@ -15,6 +15,9 @@ class RatingTableViewCell: UITableViewCell {
     @IBOutlet var usernameLabel: UILabel!
     @IBOutlet var upvoteBtn: UIButton!
     @IBOutlet var downvoteBtn: UIButton!
+    @IBOutlet weak var dateLabel: UILabel!
+    @IBOutlet weak var votesLabel: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

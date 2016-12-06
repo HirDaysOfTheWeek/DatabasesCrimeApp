@@ -27,6 +27,7 @@
 		2E30900A1DC1695A00F25B91 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2E3090081DC1695A00F25B91 /* LaunchScreen.storyboard */; };
 		2E3090151DC1695A00F25B91 /* HawkTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E3090141DC1695A00F25B91 /* HawkTests.swift */; };
 		2E3090201DC1695A00F25B91 /* HawkUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E30901F1DC1695A00F25B91 /* HawkUITests.swift */; };
+		2E5A620C1DF765A9003D2D1E /* ReviewDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E5A620B1DF765A9003D2D1E /* ReviewDetailViewController.swift */; };
 		2EED8FAA1DD6E73100762054 /* Networking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EED8FA91DD6E73100762054 /* Networking.swift */; };
 		C7122EBA23265198FBC4DD8C /* Pods_Hawk.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E9A160BA1A1C5749B7D1CAF9 /* Pods_Hawk.framework */; };
 /* End PBXBuildFile section */
@@ -75,6 +76,7 @@
 		2E30901B1DC1695A00F25B91 /* HawkUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HawkUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2E30901F1DC1695A00F25B91 /* HawkUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HawkUITests.swift; sourceTree = "<group>"; };
 		2E3090211DC1695A00F25B91 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2E5A620B1DF765A9003D2D1E /* ReviewDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReviewDetailViewController.swift; sourceTree = "<group>"; };
 		2EED8FA91DD6E73100762054 /* Networking.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Networking.swift; sourceTree = "<group>"; };
 		6CE7F2C55613825E71BBAD99 /* Pods-Hawk.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Hawk.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Hawk/Pods-Hawk.debug.xcconfig"; sourceTree = "<group>"; };
 		87C20D8A86D7246968C16E74 /* Pods-Hawk.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Hawk.release.xcconfig"; path = "Pods/Target Support Files/Pods-Hawk/Pods-Hawk.release.xcconfig"; sourceTree = "<group>"; };
@@ -161,6 +163,7 @@
 				2B6FFA571DD6750300BB6ED5 /* RegisterViewController.swift */,
 				2B32E3131DF2096C006B4FED /* PostReviewViewController.swift */,
 				2EED8FA91DD6E73100762054 /* Networking.swift */,
+				2E5A620B1DF765A9003D2D1E /* ReviewDetailViewController.swift */,
 			);
 			path = Hawk;
 			sourceTree = "<group>";
@@ -389,6 +392,7 @@
 				2EED8FAA1DD6E73100762054 /* Networking.swift in Sources */,
 				2E308FFE1DC1695A00F25B91 /* AppDelegate.swift in Sources */,
 				2E3090001DC1695A00F25B91 /* FirstViewController.swift in Sources */,
+				2E5A620C1DF765A9003D2D1E /* ReviewDetailViewController.swift in Sources */,
 				2B32E31E1DF20C65006B4FED /* ProfileViewController.swift in Sources */,
 				2B32E31A1DF209E4006B4FED /* RatingTableViewCell.swift in Sources */,
 				2B6FFA581DD6750300BB6ED5 /* RegisterViewController.swift in Sources */,

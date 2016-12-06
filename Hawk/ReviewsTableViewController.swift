@@ -15,6 +15,9 @@ class ReviewsTableViewController: UITableViewController, CLLocationManagerDelega
     var voted = [Vote]()
     let locationManager = CLLocationManager()
     let blueColor = UIColor(red: 33/255, green: 150/255, blue: 243/255, alpha: 1.0)
+    var ratingStr : String!
+    var usernameStr : String!
+    var commentsStr : String!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -112,7 +115,12 @@ class ReviewsTableViewController: UITableViewController, CLLocationManagerDelega
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print("row = \(indexPath.row)")
+        let row = indexPath.row
+        let review = self.reviews[row]
+        self.usernameStr = "User: " + review.userId!
+        self.ratingStr = String(format: "Rating: %.2f", review.rating!)
+        self.commentsStr = "Comments: " + review.comments!
+        self.performSegue(withIdentifier: "showReview", sender: self)
     }
     
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
@@ -257,9 +265,16 @@ class ReviewsTableViewController: UITableViewController, CLLocationManagerDelega
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let tabBarController = self.navigationController?.tabBarController as! GodViewController
-        let username = tabBarController.username
-        let destination = segue.destination.childViewControllers[0] as! PostReviewViewController
-        destination.userId = username
+        if (segue.identifier == "goToPostReview") {
+            let username = tabBarController.username
+            let destination = segue.destination.childViewControllers[0] as! PostReviewViewController
+            destination.userId = username
+        } else {
+            let destination = segue.destination.childViewControllers[0] as! ReviewDetailViewController
+            destination.username = self.usernameStr
+            destination.rating = self.ratingStr
+            destination.comments = self.commentsStr
+        }
     }
     
 

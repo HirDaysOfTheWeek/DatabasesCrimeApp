@@ -64,7 +64,6 @@ class Crime : Mappable {
     var cityState : String?
     var lat : Double?
     var lon : Double?
-    
     required init?(map: Map) {
         
     }
@@ -104,7 +103,8 @@ class Review : Mappable {
     var userId : String?
     var lat : Double?
     var lon : Double?
-    
+    var date : String?
+
     required init?(map: Map){
         
     }
@@ -117,6 +117,7 @@ class Review : Mappable {
         userId <- map["userId"]
         lat <- map["lat"]
         lon <- map["lon"]
+        date <- map["postDate"]
     }
 
 }

@@ -30,6 +30,12 @@ class Vote: Mappable {
         
     }
     
+    init(rId: Int, userId : String, vote: Int) {
+        self.rId = rId
+        self.userId = userId
+        self.vote = vote
+    }
+    
     func mapping(map: Map) {
         rId <- map["rId"]
         userId <- map["userId"]

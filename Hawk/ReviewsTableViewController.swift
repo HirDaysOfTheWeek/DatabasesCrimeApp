@@ -68,10 +68,17 @@ class ReviewsTableViewController: UITableViewController, CLLocationManagerDelega
         let row = indexPath.row
         let review = self.reviews[row]
         var vote : Vote!
+        cell.upvoteBtn.setTitle("Upvote", for: .normal)
+        cell.upvoteBtn.isEnabled = true
+        cell.upvoteBtn.isHidden = false
+        cell.downvoteBtn.setTitle("Downvote", for: .normal)
+        cell.downvoteBtn.isEnabled = true
+        cell.downvoteBtn.isHidden = false
         for v in self.voted {
-            print("rId in voted = \(v.rId)")
             if v.rId == review.rId {
+                print("rId in voted = \(v.rId) and rId in review = \(review.rId) for row \(row) with comment \(review.comments)")
                 vote = v
+                break
             }
         }
         if vote != nil {
@@ -97,11 +104,15 @@ class ReviewsTableViewController: UITableViewController, CLLocationManagerDelega
         cell.ratingTable?.textColor = .white
         cell.backgroundColor = UIColor.init(red: 53/255, green: 10/255, blue: 109/255, alpha: 1.0)
         cell.upvoteBtn.tag = row
-        cell.downvoteBtn.tag = self.reviews.count + row
+        cell.downvoteBtn.tag = -1 * row
         cell.upvoteBtn.addTarget(self, action: #selector(self.upvote(sender:)), for: .touchUpInside)
         cell.downvoteBtn.addTarget(self, action: #selector(self.downvote(sender:)), for: .touchUpInside)
         //blueColor
         return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        print("row = \(indexPath.row)")
     }
     
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
@@ -168,10 +179,9 @@ class ReviewsTableViewController: UITableViewController, CLLocationManagerDelega
                 let status = (response?["status"] as! String)
                 print("status =\(status)")
                 if status == "ok" {
-                    sender.setTitle("Upvoted", for: .normal)
-                    sender.isEnabled = false
-                    let downvoteBtn = self.view.viewWithTag(self.reviews.count + tag) as? UIButton
-                    downvoteBtn?.isHidden = true
+                    let vote = Vote(rId : rId!, userId: userId!, vote: 1)
+                    self.voted.append(vote)
+                    self.tableView.reloadData()
                 }
             } else {
                 print("error = \(error?.localizedDescription)")
@@ -181,8 +191,8 @@ class ReviewsTableViewController: UITableViewController, CLLocationManagerDelega
     
     func downvote(sender: UIButton) {
         let tag = sender.tag
-        let row = tag - self.reviews.count
-        let review = self.reviews[row]
+        let inverseTag = -1 * tag
+        let review = self.reviews[inverseTag]
         let rId = review.rId
         let god = self.navigationController?.tabBarController as! GodViewController
         let userId = god.username
@@ -192,10 +202,9 @@ class ReviewsTableViewController: UITableViewController, CLLocationManagerDelega
             if error == nil {
                 let status = (response?["status"] as! String)
                 if status == "ok" {
-                    sender.setTitle("Downvoted", for: .normal)
-                    sender.isEnabled = false
-                    let upvoteBtn = self.view.viewWithTag(row) as? UIButton
-                    upvoteBtn?.isHidden = true
+                   let vote = Vote(rId: rId!, userId: userId!, vote: -1)
+                   self.voted.append(vote)
+                   self.tableView.reloadData()
                 }
             }
         })

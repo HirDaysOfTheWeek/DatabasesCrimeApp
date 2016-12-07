@@ -183,5 +183,42 @@ class Networking {
         }
     }
     
+    class func getCityScore(lat : Double, lon : Double, radius: Double, completionHandler : @escaping (NSDictionary?, NSError?) -> ()) {
+        let getCityScoreUrl = Networking().url! + "/getCityScore"
+        let parameters : Parameters = [
+            "lat" : lat,
+            "lon" : lon,
+        ]
+        Alamofire.request(getCityScoreUrl, parameters : parameters).responseJSON {
+            response in
+            
+            switch response.result {
+            case .success(let value):
+                completionHandler(value as? NSDictionary, nil)
+            case .failure(let error):
+                completionHandler(nil, error as NSError?)
+            }
+        }
+    }
+    
+    class func getCityCrimesCount(lat : Double, lon : Double, radius: Double, window: Int, completionHandler : @escaping (NSDictionary?, NSError?) -> ()) {
+        let getCityScoreUrl = Networking().url! + "/getCityCrimesCount"
+        let parameters : Parameters = [
+            "lat" : lat,
+            "lon" : lon,
+            "window" : window
+            ]
+        Alamofire.request(getCityScoreUrl, parameters : parameters).responseJSON {
+            response in
+            
+            switch response.result {
+            case .success(let value):
+                completionHandler(value as? NSDictionary, nil)
+            case .failure(let error):
+                completionHandler(nil, error as NSError?)
+            }
+        }
+    }
+    
     
 }

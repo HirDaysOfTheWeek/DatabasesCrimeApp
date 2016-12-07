@@ -73,25 +73,6 @@
             </objects>
             <point key="canvasLocation" x="749.60000000000002" y="-320.68965517241384"/>
         </scene>
-        <!--Info-->
-        <scene sceneID="axi-iW-g9W">
-            <objects>
-                <viewController id="07K-U6-RZO" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="F8i-SH-AJ7"/>
-                        <viewControllerLayoutGuide type="bottom" id="8NB-Tp-hRt"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="4Vt-bO-SkN">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                    <tabBarItem key="tabBarItem" title="Info" selectedImage="info.png" id="6ht-Hu-bR7"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="mzn-ry-FLr" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-375" y="721"/>
-        </scene>
         <!--Profile View Controller-->
         <scene sceneID="4Q3-lk-Lle">
             <objects>
@@ -450,7 +431,6 @@
                         <segue destination="9pv-A4-QxB" kind="relationship" relationship="viewControllers" id="u7Y-xg-7CH"/>
                         <segue destination="Gfs-I4-OXN" kind="relationship" relationship="viewControllers" id="DmD-va-yIU"/>
                         <segue destination="FVH-WG-UYB" kind="relationship" relationship="viewControllers" id="BPh-cx-aly"/>
-                        <segue destination="07K-U6-RZO" kind="relationship" relationship="viewControllers" id="FTq-gN-Wm4"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HuB-VB-40B" sceneMemberID="firstResponder"/>
@@ -675,7 +655,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="info.png" width="34" height="34"/>
         <image name="mapicon.png" width="34" height="34"/>
         <image name="review.png" width="29" height="29"/>
         <image name="user.png" width="31" height="31"/>

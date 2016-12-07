@@ -29,7 +29,10 @@ import CoreLocation
 class CrimesViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate{
 
     @IBOutlet var mapView: MKMapView!
-    
+    @IBOutlet var crimeScore: UILabel!
+    @IBOutlet var crimeCount: UILabel!
+    @IBOutlet var cityStateLabel: UILabel!
+    @IBOutlet var arrestsLabel: UILabel!
     let locationManager = CLLocationManager()
     
     override func viewDidLoad() {
@@ -84,6 +87,28 @@ class CrimesViewController: UIViewController, MKMapViewDelegate, CLLocationManag
                     }
                 }
             }
+        })
+        Networking.getCityScore(lat: lat, lon: lon, completionHandler: {
+            response, error in
+            
+            if error == nil {
+                let score:Double = response?["score"] as! Double
+                self.crimeScore.text = String(format: " Average Review of City: %.4f", score)
+                let cs = response?["citystate"] as! String
+                self.cityStateLabel.text = " " + cs
+            }
+        })
+        Networking.getCityCrimesCount(lat: lat, lon: lon, window: 3, completionHandler: {
+            response, error in
+            
+            if error == nil {
+                let count:Int = response?["count"] as! Int
+                let arrests:Int =
+                    response?["arrests"] as! Int
+                self.crimeCount.text = String(format: " # of Crimes in past 3 months: %d", count)
+                self.arrestsLabel.text = String(format: " # of Arrests in past 3 months: %d", arrests)
+            }
+            
         })
     }
     

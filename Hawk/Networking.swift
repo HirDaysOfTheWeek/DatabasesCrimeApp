@@ -183,7 +183,7 @@ class Networking {
         }
     }
     
-    class func getCityScore(lat : Double, lon : Double, radius: Double, completionHandler : @escaping (NSDictionary?, NSError?) -> ()) {
+    class func getCityScore(lat : Double, lon : Double, completionHandler : @escaping (NSDictionary?, NSError?) -> ()) {
         let getCityScoreUrl = Networking().url! + "/getCityScore"
         let parameters : Parameters = [
             "lat" : lat,
@@ -201,7 +201,7 @@ class Networking {
         }
     }
     
-    class func getCityCrimesCount(lat : Double, lon : Double, radius: Double, window: Int, completionHandler : @escaping (NSDictionary?, NSError?) -> ()) {
+    class func getCityCrimesCount(lat : Double, lon : Double, window: Int, completionHandler : @escaping (NSDictionary?, NSError?) -> ()) {
         let getCityScoreUrl = Networking().url! + "/getCityCrimesCount"
         let parameters : Parameters = [
             "lat" : lat,

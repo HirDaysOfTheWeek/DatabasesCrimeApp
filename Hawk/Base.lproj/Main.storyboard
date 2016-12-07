@@ -37,7 +37,7 @@
             </objects>
             <point key="canvasLocation" x="749.60000000000002" y="-320.68965517241384"/>
         </scene>
-        <!--Settings-->
+        <!--Info-->
         <scene sceneID="axi-iW-g9W">
             <objects>
                 <viewController id="07K-U6-RZO" sceneMemberID="viewController">
@@ -50,7 +50,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Settings" id="6ht-Hu-bR7"/>
+                    <tabBarItem key="tabBarItem" title="Info" selectedImage="info.png" id="6ht-Hu-bR7"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mzn-ry-FLr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -639,6 +639,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="info.png" width="34" height="34"/>
         <image name="mapicon.png" width="34" height="34"/>
         <image name="review.png" width="29" height="29"/>
         <image name="user.png" width="31" height="31"/>

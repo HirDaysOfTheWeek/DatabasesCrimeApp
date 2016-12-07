@@ -106,7 +106,7 @@ class CrimesViewController: UIViewController, MKMapViewDelegate, CLLocationManag
                 let arrests:Int =
                     response?["arrests"] as! Int
                 self.crimeCount.text = String(format: " # of Crimes in past 3 months: %d", count)
-                self.arrestsLabel.text = String(format: " # of Arrests in past 3 months: %d", arrests)
+                self.arrestsLabel.text = String(format: " # of Arrests in past 3 months: %d", arrests + 1)
             }
             
         })
